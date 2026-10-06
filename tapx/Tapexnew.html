@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Smart NFC Portfolio</title>
+    <!-- Icons ගෙනාවෙ මෙතනින් -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        .mobile-container {
+            background-color: white;
+            width: 100%;
+            max-width: 400px;
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        .cover-image {
+            width: 100%;
+            height: 180px;
+            background-image: url("cover.jpeg");
+            background-size: cover;
+            background-position: center;
+        }
+
+        .profile-content {
+            padding: 0 20px 20px;
+            text-align: center;
+            position: relative;
+            background: white;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+            margin-top: -30px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-top: -55px;
+            object-fit: cover;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            margin: 10px 0 0;
+            font-size: 24px;
+            font-weight: 700;
+            color: #1a1a1a;
+        }
+
+        .title {
+            color: #666;
+            margin: 5px 0 15px;
+            font-size: 14px;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #f4f6f8;
+            color: #6a7489;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-icon:hover {
+            background-color: #1c2331;
+            color: white;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+
+        .action-btn {
+            background-color: #1c2331;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex: 1;
+            justify-content: center;
+            text-decoration: none;
+        }
+
+        .description {
+            font-size: 13px;
+            color: #555;
+            line-height: 1.5;
+            margin: 0 15px 25px;
+            text-align: center;
+        }
+
+        .bio-details {
+            background: #f8f9fa;
+            margin: 15px 0px;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: left;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .detail-item {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .detail-item i {
+            color: #1e293b;
+            width: 18px;
+            text-align: center;
+        }
+
+        .detail-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .footer-brand {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+            letter-spacing: 0.5px;
+        }
+
+        .footer-brand span {
+            color: #0f172a;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="mobile-container">
+        <!-- Cover Image -->
+        <div class="cover-image"></div>
+        
+        <div class="profile-content">
+            <!-- Profile Picture -->
+            <img class="avatar" id="userAvatar" src="profile.png" alt="Profile">
+            
+            <h1 id="userName">Emily Johnson</h1>
+            <p class="title" id="userRole">Professional Photographer</p>
+            
+            <!-- User Description -->
+            <p class="description" id="userDescription">
+                Hi! I am a professional photographer. I love capturing beautiful moments and sharing them with the world. Welcome to my smart portfolio!
+            </p>
+
+            <!-- Personal Details Section -->
+            <div class="bio-details">
+                <div class="detail-item">
+                    <i class="fa-solid fa-cake-candles"></i>
+                    <span><strong>Age:</strong> <span id="userAge">21 Years</span></span>
+                </div>
+                <br>
+                <div class="detail-item">
+                    <i class="fa-solid fa-graduation-cap"></i>
+                    <span><strong>Study at:</strong> <span id="userStudy">University of Sri Jayewardenepura</span></span>
+                </div>
+                <br>
+                <div class="detail-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span><strong>Status:</strong> <span id="userStatus">Single</span></span>
+                </div>
+                <br>
+                <div class="detail-item">
+                    <i class="fa-solid fa-award"></i>
+                    <span><strong>Qualifications:</strong> <span id="userQual">Computer Science Undergraduate</span></span>
+                </div>
+                <br>
+            </div>
+
+            <!-- Social Icons -->
+            <div class="social-icons">
+                <a href="#" id="instaLink" class="social-icon" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#" id="ytLink" class="social-icon" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                <a href="#" id="fbLink" class="social-icon" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" id="inLink" class="social-icon" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" id="ttLink" class="social-icon" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="action-buttons">
+                <a href="#" id="emailBtn" class="action-btn"><i class="fa-regular fa-envelope"></i> Email</a>
+                <a href="#" id="callBtn" class="action-btn"><i class="fa-solid fa-phone"></i> Call</a>
+            </div>
+
+            <!-- Footer / Powered by Section -->
+            <div class="footer-brand">
+                <p>Powered by | <span>TapX</span></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script to update details dynamically from URL parameters -->
+    <script>
+        const params = new URLSearchParams(window.location.search);
+
+        // Text & Bio fields update
+        if (params.has('name')) document.getElementById('userName').innerText = params.get('name');
+        if (params.has('role')) document.getElementById('userRole').innerText = params.get('role');
+        if (params.has('desc')) document.getElementById('userDescription').innerText = params.get('desc');
+        if (params.has('age')) document.getElementById('userAge').innerText = params.get('age');
+        if (params.has('study')) document.getElementById('userStudy').innerText = params.get('study');
+        if (params.has('status')) document.getElementById('userStatus').innerText = params.get('status');
+        if (params.has('qual')) document.getElementById('userQual').innerText = params.get('qual');
+
+        // Images update (Avatar & Cover if provided)
+        if (params.has('avatar')) document.getElementById('userAvatar').src = params.get('avatar');
+        
+        // Social Links update
+        if (params.has('insta')) document.getElementById('instaLink').href = params.get('insta');
+        if (params.has('yt')) document.getElementById('ytLink').href = params.get('yt');
+        if (params.has('fb')) document.getElementById('fbLink').href = params.get('fb');
+        if (params.has('in')) document.getElementById('inLink').href = params.get('in');
+        if (params.has('tt')) document.getElementById('ttLink').href = params.get('tt');
+
+        // Action Buttons (Email & Phone)
+        if (params.has('email')) document.getElementById('emailBtn').href = 'mailto:' + params.get('email');
+        if (params.has('phone')) document.getElementById('callBtn').href = 'tel:' + params.get('phone');
+    </script>
+
+</body>
+</html>
